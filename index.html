@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" style="scroll-padding-top: 5rem;">
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 6rem;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +50,10 @@
         .gallery-swiper .swiper-button-prev {
             color: #b49771 !important;
             transform: scale(0.8);
+            z-index: 50;
+        }
+        .swiper-pagination {
+            z-index: 50;
         }
         .swiper-pagination-bullet { width: 10px; height: 10px; }
     </style>
@@ -57,10 +61,9 @@
 <body class="bg-brand-light text-gray-800 font-sans antialiased overflow-x-hidden">
 
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-            <div class="flex items-center gap-2">
-                <!-- <img src="logo.png" alt="Brand Logo" class="h-10 cursor-pointer" onclick="window.scrollTo(0,0)"> -->
-                <img src="logo.png" alt="Blend Infra Logo" class="h-16 md:h-18 w-auto object-contain cursor-pointer" onclick="window.scrollTo(0,0)">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
+            <div class="flex items-center gap-2 h-full py-3">
+                <img src="logo.png" alt="Blend Infra Logo" class="h-full w-auto object-contain cursor-pointer" onclick="window.scrollTo(0,0)">
             </div>
             <div class="hidden md:flex space-x-8 items-center font-medium text-sm">
                 <a href="#home" class="hover:text-brand-gold transition-colors">Home</a>
@@ -75,7 +78,7 @@
         </div>
     </nav>
 
-    <header id="home" class="relative pt-20 h-screen flex items-center justify-center fade-in visible">
+    <header id="home" class="relative pt-24 h-screen flex items-center justify-center fade-in visible">
         <div class="absolute inset-0 z-0">
             <img src="image1.png" alt="Hero Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/40"></div>
@@ -241,13 +244,13 @@
             <div class="swiper video-swiper fade-in overflow-hidden rounded-xl shadow-2xl bg-black max-w-4xl mx-auto border-[6px] border-gray-900 relative">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide flex justify-center items-center h-[500px] md:h-[600px] bg-black">
-                        <video controls playsinline class="w-full h-full object-contain">
+                        <video controls muted playsinline class="w-full h-full object-contain">
                             <source src="testimonial1.mp4" type="video/mp4">
                             Your browser does not support HTML video.
                         </video>
                     </div>
                     <div class="swiper-slide flex justify-center items-center h-[500px] md:h-[600px] bg-black">
-                        <video controls playsinline class="w-full h-full object-contain">
+                        <video controls muted playsinline class="w-full h-full object-contain">
                             <source src="testimonial2.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -330,12 +333,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script>
-        // 1. Initialize Gallery Swiper (Auto-Swipe Enabled + Navigation Arrows + Dots)
+        // 1. Initialize Gallery Swiper 
         const gallerySwiper = new Swiper('.gallery-swiper', {
             slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
-            loopedSlides: 5, // Fixes infinite loop behavior with multiple slides visible
+            // Removed loopedSlides completely to let Swiper v10 auto-calculate native loop
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -354,22 +357,35 @@
             }
         });
 
-        // 2. Initialize Video Swiper (Reels format + Infinite Loop)
+        // 2. Initialize Video Swiper
         const videoSwiper = new Swiper('.video-swiper', {
             slidesPerView: 1,
             spaceBetween: 30,
-            loop: true, // Ensures the carousel restarts from the beginning smoothly
+            loop: true, 
             navigation: {
                 nextEl: '.video-swiper .swiper-button-next',
                 prevEl: '.video-swiper .swiper-button-prev',
             },
             on: {
+                init: function () {
+                    // Auto-play the first video immediately on load
+                    const activeVideo = this.slides[this.activeIndex].querySelector('video');
+                    if(activeVideo) { 
+                        activeVideo.play().catch(e => console.log('Autoplay blocked by browser')); 
+                    }
+                },
                 slideChange: function () {
-                    // Pause all videos when swiping
+                    // Pause all videos and reset to start
                     document.querySelectorAll('.video-swiper video').forEach(vid => {
                         vid.pause();
-                        vid.currentTime = 0; // Reset video to start when swiped away
+                        vid.currentTime = 0; 
                     });
+                    
+                    // Auto-play newly active video
+                    const activeVideo = this.slides[this.activeIndex].querySelector('video');
+                    if(activeVideo) { 
+                        activeVideo.play().catch(e => console.log('Autoplay blocked by browser')); 
+                    }
                 }
             }
         });
@@ -413,7 +429,6 @@
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Submit Form';
                     
-                    // Clear out success message after 5 seconds
                     setTimeout(() => { formStatus.className = "hidden"; }, 5000);
                 })
                 .catch(error => {
