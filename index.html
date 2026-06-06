@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blend Infra - Premium Construction</title>
+    <meta name="description" content="Turnkey construction and interior solutions for residential and commercial projects.">
+    
+    <!-- Tailwind CSS (CDN for single-file deployment) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#111827',
+                            gold: '#b49771',
+                            light: '#f9fafb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Premium Animations */
+        body { scroll-behavior: smooth; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .swiper-slide { transition: transform 0.3s ease; }
+        .swiper-slide-active { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-brand-light text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <div class="flex items-center gap-2">
+                <!-- Replace with actual logo -->
+                <img src="https://via.placeholder.com/150x50?text=LOGO+HERE" alt="Brand Logo" class="h-10">
+            </div>
+            <div class="hidden md:flex space-x-8 items-center font-medium text-sm">
+                <a href="#home" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="#services" class="hover:text-brand-gold transition-colors">Services</a>
+                <a href="#about" class="hover:text-brand-gold transition-colors">About Us</a>
+                <a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a>
+                <a href="#contact" class="bg-brand-gold text-white px-6 py-2 rounded shadow hover:bg-opacity-90 transition-all">Contact Us</a>
+                <a href="tel:+919791751996" class="flex items-center gap-2 font-semibold">
+                    <span>📞 +91-9791751996</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative pt-20 h-screen flex items-center justify-center">
+        <!-- Replace Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://via.placeholder.com/1920x1080?text=Hero+Background+Image" alt="Hero Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl fade-in text-white">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-white">Where Vision Meets Precision in Construction</h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-200">Blend Infra delivers turnkey construction and interior solutions for residential, commercial, and pre-engineered building projects across Tamil Nadu.</p>
+                <a href="#contact" class="inline-block bg-brand-gold text-white font-semibold px-8 py-3 rounded hover:bg-white hover:text-brand-gold transition-all duration-300">Call Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white relative z-20 -mt-10 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-xl fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
+            <div class="flex items-start gap-4">
+                <div class="bg-brand-gold/20 p-3 rounded text-brand-gold">🌟</div>
+                <div>
+                    <h3 class="font-bold text-lg text-brand-dark mb-2">Turnkey Expertise</h3>
+                    <p class="text-sm text-gray-600">From planning and approvals to execution and handover.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="bg-brand-gold/20 p-3 rounded text-brand-gold">⭐</div>
+                <div>
+                    <h3 class="font-bold text-lg text-brand-dark mb-2">Quality Execution</h3>
+                    <p class="text-sm text-gray-600">Built with precision, durability, and attention to detail.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="bg-brand-gold/20 p-3 rounded text-brand-gold">🤝</div>
+                <div>
+                    <h3 class="font-bold text-lg text-brand-dark mb-2">Trusted Team</h3>
+                    <p class="text-sm text-gray-600">Architects, engineers, and craftsmen working together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-sm font-bold text-brand-gold tracking-widest uppercase">What We Serve</span>
+                <h2 class="text-4xl font-bold text-brand-dark mt-2">Our <span class="text-brand-dark">Services</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Cards (Replace img src) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <img src="https://via.placeholder.com/600x400?text=Service+1" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Residential Construction & Interior</h3>
+                        <p class="text-gray-600 text-sm">Custom homes, renovations, and complete remodeling tailored to your lifestyle and long-term needs.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in" style="transition-delay: 100ms;">
+                    <img src="https://via.placeholder.com/600x400?text=Service+2" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Commercial Construction & Interior</h3>
+                        <p class="text-gray-600 text-sm">Modern, functional, and scalable commercial spaces designed to support business growth.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in" style="transition-delay: 200ms;">
+                    <img src="https://via.placeholder.com/600x400?text=Service+3" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Pre-Engineered Buildings</h3>
+                        <p class="text-gray-600 text-sm">Efficient, durable, and cost-effective PEB solutions built with modern construction techniques.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <img src="https://via.placeholder.com/600x400?text=Service+4" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Interior Design & Execution</h3>
+                        <p class="text-gray-600 text-sm">Thoughtfully designed interiors that balance aesthetics, functionality, and comfort.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in" style="transition-delay: 100ms;">
+                    <img src="https://via.placeholder.com/600x400?text=Service+5" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Kitchen & Bathroom Remodeling</h3>
+                        <p class="text-gray-600 text-sm">Upgrade essential spaces with smart layouts, quality finishes, and practical design solutions.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in" style="transition-delay: 200ms;">
+                    <img src="https://via.placeholder.com/600x400?text=Service+6" alt="Service" class="w-full h-60 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-brand-gold">Building Approval</h3>
+                        <p class="text-gray-600 text-sm">We provide support in acquiring plan approvals from respective government authorities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="relative py-24 bg-brand-dark fade-in">
+        <div class="absolute inset-0 opacity-40">
+             <img src="https://via.placeholder.com/1920x600?text=Banner+Background" alt="Banner" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Built to the Last. Design to Inspire</h2>
+            <p class="text-gray-300">Blend Infra is a leading construction firm and turnkey contractor committed to creating spaces that are visually striking, structurally strong, and built for long-term value.</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white border-b border-gray-200 fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-200">
+                <div>
+                    <h4 class="text-4xl md:text-5xl font-bold text-brand-gold mb-2">50+</h4>
+                    <p class="text-brand-dark font-semibold">Residential Projects</p>
+                </div>
+                <div>
+                    <h4 class="text-4xl md:text-5xl font-bold text-brand-gold mb-2">80+</h4>
+                    <p class="text-brand-dark font-semibold">Commercial Projects</p>
+                </div>
+                <div>
+                    <h4 class="text-4xl md:text-5xl font-bold text-brand-gold mb-2">30+</h4>
+                    <p class="text-brand-dark font-semibold">Turnkey Projects</p>
+                </div>
+                <div>
+                    <h4 class="text-4xl md:text-5xl font-bold text-brand-gold mb-2">25+</h4>
+                    <p class="text-brand-dark font-semibold">Construction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section id="about" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <img src="https://via.placeholder.com/800x600?text=About+Image" alt="Construction" class="rounded-xl shadow-lg w-full">
+            </div>
+            <div class="fade-in text-left">
+                <span class="text-sm font-bold text-brand-gold tracking-widest uppercase mb-2 block">What We Build</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-gold mb-6">Construction and Interiors <br><span class="text-brand-dark">Managed Under One Roof</span></h2>
+                <p class="text-gray-600 leading-relaxed">At Blend Infra, we combine creative design thinking with engineering precision to deliver spaces that are both functional and enduring. Our team works closely with clients through every phase of the project, from concept development and budgeting to construction management, interior execution, approvals, and final handover. The result is a smoother process, better coordination, and a finished space that reflects your vision with confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Auto-Swiping Carousel) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-brand-dark mb-12 fade-in">Gallery</h2>
+            
+            <div class="swiper gallery-swiper fade-in overflow-hidden pb-10">
+                <div class="swiper-wrapper">
+                    <!-- Gallery Slides (Replace Placeholders) -->
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+1" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+2" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+3" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+4" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
+                    <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+5" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Video Section (Carousel) -->
+    <section class="py-20 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-brand-dark mb-12 fade-in">Testimonial</h2>
+            
+            <div class="swiper video-swiper fade-in overflow-hidden rounded-xl shadow-xl bg-black">
+                <div class="swiper-wrapper">
+                    <!-- Video Slides (Replace Video Source) -->
+                    <div class="swiper-slide flex justify-center items-center h-[500px]">
+                        <video controls class="w-full h-full object-cover">
+                            <!-- Placeholder Video -->
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center h-[500px]">
+                        <video controls class="w-full h-full object-cover">
+                            <!-- Placeholder Video -->
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-light rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row fade-in">
+                <!-- Form Side -->
+                <div class="w-full md:w-1/2 p-10">
+                    <h2 class="text-3xl font-bold text-brand-dark mb-8">Contact Form</h2>
+                    
+                    <form id="googleSheetForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                            <input type="text" name="First_Name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="First Name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Contact Number *</label>
+                            <input type="text" name="Contact_Number" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="Your Number">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Plot Area</label>
+                            <input type="text" name="Plot_Area" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="Plot Area">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Services Needed *</label>
+                            <select name="Services_Needed" required class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none bg-white">
+                                <option value="" disabled selected>Services Needed</option>
+                                <option value="Residential">Residential Construction</option>
+                                <option value="Commercial">Commercial Construction</option>
+                                <option value="Interior">Interior Design</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">What Price You Expecting</label>
+                            <input type="text" name="Price_Expected" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="What Price Your Expecting">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
+                            <textarea name="Notes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="Your Message"></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="w-32 bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition duration-300 shadow">
+                            Submit Form
+                        </button>
+                        <p id="formStatus" class="mt-2 text-sm hidden"></p>
+                    </form>
+                </div>
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2">
+                    <img src="https://via.placeholder.com/800x1200?text=Contact+Side+Image" alt="Contact Interior" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Basic implementation mimicking the context) -->
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Blend Infra</h3>
+            <p class="text-gray-400 mb-6">Building the future, restoring the past.</p>
+            <div class="text-sm text-gray-500">
+                &copy; 2026 Blend Infra. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Direct Messaging CTA Button (WhatsApp) -->
+    <a href="https://wa.me/919791751996" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-3 rounded-full flex items-center gap-2 shadow-2xl z-50 hover:bg-green-600 transition-all transform hover:scale-105">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <span>How can I help you?</span>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        // 1. Initialize Gallery Swiper (Auto-Swipe Enabled)
+        const gallerySwiper = new Swiper('.gallery-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            }
+        });
+
+        // 2. Initialize Video Swiper
+        const videoSwiper = new Swiper('.video-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                slideChange: function () {
+                    // Pause all videos when swiping
+                    document.querySelectorAll('.video-swiper video').forEach(vid => vid.pause());
+                }
+            }
+        });
+
+        // Optional: Auto-swipe after video ends
+        document.querySelectorAll('.video-swiper video').forEach(video => {
+            video.addEventListener('ended', () => {
+                videoSwiper.slideNext();
+            });
+        });
+
+        // 3. Scroll Animations (Fade-In on Scroll)
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // 4. Google Sheets Form Submission Handler
+        // IMPORTANT: Replace 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL' with your actual Google Apps Script URL.
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        const form = document.getElementById('googleSheetForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            // If you haven't set up the script URL yet, bypass the fetch to avoid console errors.
+            if(scriptURL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
+                formStatus.textContent = "Please configure your Google Apps Script URL in the HTML code.";
+                formStatus.className = "mt-2 text-sm text-red-600 block";
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Form';
+                return;
+            }
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    formStatus.textContent = "Success! Your form has been submitted.";
+                    formStatus.className = "mt-2 text-sm text-green-600 block";
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Form';
+                })
+                .catch(error => {
+                    formStatus.textContent = "Error submitting the form. Try again.";
+                    formStatus.className = "mt-2 text-sm text-red-600 block";
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Form';
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+</body>
+</html>
