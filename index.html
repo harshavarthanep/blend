@@ -395,7 +395,7 @@
 
         // 4. Google Sheets Form Submission Handler
         // IMPORTANT: Replace 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL' with your actual Google Apps Script URL.
-        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzOaTWL9hrEUCpgMaKIEv4GQhq2DIHhDIOKVHofyDSPndt-Sqm0k05spqzoyA5oRBOTQw/exec';
         const form = document.getElementById('googleSheetForm');
         const submitBtn = document.getElementById('submitBtn');
         const formStatus = document.getElementById('formStatus');
@@ -406,7 +406,7 @@
             submitBtn.textContent = 'Submitting...';
             
             // If you haven't set up the script URL yet, bypass the fetch to avoid console errors.
-            if(scriptURL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
+            if(scriptURL === 'https://script.google.com/macros/s/AKfycbzOaTWL9hrEUCpgMaKIEv4GQhq2DIHhDIOKVHofyDSPndt-Sqm0k05spqzoyA5oRBOTQw/exec') {
                 formStatus.textContent = "Please configure your Google Apps Script URL in the HTML code.";
                 formStatus.className = "mt-2 text-sm text-red-600 block";
                 submitBtn.disabled = false;
