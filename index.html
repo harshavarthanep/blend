@@ -51,6 +51,7 @@
             color: #b49771 !important;
             transform: scale(0.8);
         }
+        .swiper-pagination-bullet { width: 10px; height: 10px; }
     </style>
 </head>
 <body class="bg-brand-light text-gray-800 font-sans antialiased overflow-x-hidden">
@@ -216,7 +217,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center text-brand-dark mb-12 fade-in">Gallery</h2>
             
-            <div class="swiper gallery-swiper fade-in relative px-8 pb-12">
+            <div class="swiper gallery-swiper fade-in relative pb-16">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+1" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
                     <div class="swiper-slide"><img src="https://via.placeholder.com/800x600?text=Gallery+2" class="rounded-xl shadow-md w-full h-80 object-cover"></div>
@@ -226,25 +227,25 @@
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination !bottom-0"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
     <section class="py-20 bg-brand-light">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold text-brand-dark mb-12 fade-in">Testimonial</h2>
             
-            <div class="swiper video-swiper fade-in overflow-hidden rounded-xl shadow-2xl bg-black max-w-sm mx-auto border-[6px] border-gray-900 relative">
+            <div class="swiper video-swiper fade-in overflow-hidden rounded-xl shadow-2xl bg-black max-w-4xl mx-auto border-[6px] border-gray-900 relative">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide flex justify-center items-center h-[600px] bg-gray-900">
-                        <video controls playsinline class="w-full h-full object-cover">
+                    <div class="swiper-slide flex justify-center items-center h-[500px] md:h-[600px] bg-black">
+                        <video controls playsinline class="w-full h-full object-contain">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             Your browser does not support HTML video.
                         </video>
                     </div>
-                    <div class="swiper-slide flex justify-center items-center h-[600px] bg-gray-900">
-                        <video controls playsinline class="w-full h-full object-cover">
+                    <div class="swiper-slide flex justify-center items-center h-[500px] md:h-[600px] bg-black">
+                        <video controls playsinline class="w-full h-full object-contain">
                             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -332,6 +333,7 @@
             slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
+            loopedSlides: 5, // Fixes infinite loop behavior with multiple slides visible
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -350,10 +352,11 @@
             }
         });
 
-        // 2. Initialize Video Swiper (Reels format)
+        // 2. Initialize Video Swiper (Reels format + Infinite Loop)
         const videoSwiper = new Swiper('.video-swiper', {
             slidesPerView: 1,
             spaceBetween: 30,
+            loop: true, // Ensures the carousel restarts from the beginning smoothly
             navigation: {
                 nextEl: '.video-swiper .swiper-button-next',
                 prevEl: '.video-swiper .swiper-button-prev',
@@ -361,19 +364,22 @@
             on: {
                 slideChange: function () {
                     // Pause all videos when swiping
-                    document.querySelectorAll('.video-swiper video').forEach(vid => vid.pause());
+                    document.querySelectorAll('.video-swiper video').forEach(vid => {
+                        vid.pause();
+                        vid.currentTime = 0; // Reset video to start when swiped away
+                    });
                 }
             }
         });
 
-        // Optional: Auto-swipe after video ends
+        // Auto-swipe after video ends
         document.querySelectorAll('.video-swiper video').forEach(video => {
             video.addEventListener('ended', () => {
                 videoSwiper.slideNext();
             });
         });
 
-        // 3. Scroll Animations (Fade-In on Scroll) - Applied uniformly
+        // 3. Scroll Animations (Fade-In on Scroll)
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
